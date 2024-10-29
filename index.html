@@ -27,6 +27,10 @@
       margin-bottom: 15px;
     }
 
+    .print-button {
+        margin: 0 auto;
+    }
+
     .check-header {
       font-size: 1.2em;
       font-weight: bold;
@@ -112,8 +116,9 @@
 </div>
 
 <!-- Print Button -->
-<button class="print-button" onclick="printCheck()">Print Check</button>
-
+<div style="display: flex; justify-content: center">
+    <button class="print-button" onclick="printCheck()">Print Check</button>
+</div>
 <script>
   // Function to print the check
   function printCheck() {
