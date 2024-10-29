@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Printable Check</title>
+  <style>
+    /* General styling */
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Check container styling */
+    .check-container {
+      max-width: 700px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 2px solid #333;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+    }
+
+    /* Check layout */
+    .check-header, .check-body, .check-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+
+    .check-header {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+
+    .label {
+      font-weight: bold;
+    }
+
+    .input-field {
+      border: none;
+      border-bottom: 1px solid #333;
+      width: 100%;
+      padding: 4px;
+      font-size: 1em;
+      outline: none;
+      background-color: transparent;
+    }
+
+    /* Print button */
+    .print-button {
+      display: inline-block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 1em;
+      color: white;
+      background-color: #333;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Hide elements for print view */
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      .check-container, .check-container * {
+        visibility: visible;
+      }
+      .check-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+      }
+      .print-button {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="check-container" id="check">
+  <!-- Check Header -->
+  <div class="check-header">
+    <span>Bank Name</span>
+    <span>Date: <input type="text" id="date" class="input-field" placeholder="MM/DD/YYYY"></span>
+  </div>
+
+  <!-- Check Body -->
+  <div class="check-body">
+    <div style="flex: 1;">
+      <label class="label">Pay to the order of:</label>
+      <input type="text" id="payee" class="input-field" placeholder="Payee Name">
+    </div>
+    <div>
+      <label class="label">Amount:</label>
+      <input type="text" id="amount" class="input-field" placeholder="$0.00">
+    </div>
+  </div>
+
+  <!-- Amount in words -->
+  <div class="check-body">
+    <label class="label">Amount in words:</label>
+    <input type="text" id="amount-words" class="input-field" placeholder="Amount in words">
+  </div>
+
+  <!-- Check Footer -->
+  <div class="check-footer">
+    <span>Authorized Signature</span>
+  </div>
+</div>
+
+<!-- Print Button -->
+<button class="print-button" onclick="printCheck()">Print Check</button>
+
+<script>
+  // Function to print the check
+  function printCheck() {
+    // Open print dialog
+    window.print();
+  }
+</script>
+
+</body>
+</html>
