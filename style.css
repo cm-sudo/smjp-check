@@ -1,0 +1,126 @@
+
+    body {
+      font-family: 'Roboto Mono', monospace; /* Use Roboto Mono font */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Ensure full height for centering */
+      justify-content: space-between; /* Space between elements */
+      margin: 0; /* Remove default margin */
+    }
+
+    /* Check container styling */
+    .check-container {
+      width: 700px;
+      margin: 10px auto;
+      padding: 15px;
+      border: 2px solid #333;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      position: relative;
+      page-break-inside: avoid;
+    }
+
+    /* Check sections */
+    .check-header, .check-body, .check-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    /* Label and input field styling */
+    .label {
+      font-weight: bold;
+    }
+
+    .input-field {
+      border: none;
+      border-bottom: 1px solid #333;
+      width: 100%;
+      padding: 4px;
+      font-size: 1em;
+      outline: none;
+      background-color: transparent;
+    }
+
+    /* Action buttons styling */
+    .print-button-container {
+      display: flex;
+      justify-content: center; /* Center buttons */
+      margin: 20px 0; /* Margin for spacing */
+      position: fixed; /* Fix position to the bottom */
+      bottom: 20px; /* Space from the bottom */
+      left: 50%; /* Center horizontally */
+      transform: translateX(-50%); /* Adjust to perfectly center */
+      width: 100%; /* Full width */
+    }
+
+    .action-button {
+      cursor: pointer;
+      font-size: 1em;
+      color: #333;
+      margin: 10px;
+      padding: 8px;
+      background-color: #f2f2f2;
+      border: 1px solid #333;
+      border-radius: 4px;
+      text-align: center;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .action-button:hover {
+      background-color: #e0e0e0;
+      transform: scale(1.05);
+    }
+
+    .print-button {
+      margin: 0; /* Remove margin for consistency */
+      padding: 10px 20px;
+      font-size: 1em;
+      color: white;
+      background-color: #333;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Enhanced delete button styling */
+    .delete-check-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      font-size: 1.5em; /* Increased size */
+      color: red; /* Changed color for visibility */
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .delete-check-button:hover {
+      transform: scale(1.2);
+    }
+
+    /* Print-specific styling */
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+
+      #check-list, #check-list * {
+        visibility: visible;
+      }
+
+      #check-list {
+        display: block;
+        padding: 0;
+      }
+
+      .check-container {
+        margin: 5px auto;
+        page-break-before: auto;
+        page-break-after: auto;
+      }
+
+      .print-button, .action-button, .delete-check-button {
+        display: none;
+      }
+    }
